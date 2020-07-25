@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap');
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Variables
+# Normalize
+# Forms
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Variables
+--------------------------------------------------------------*/
+$bg: #f6f2ef;
+$grey: #BDBDBD;
+$aqua: #00BFFF;
+$blue: #1b6ac9;
+$green: #2da562;
+$dark_green: #29975a;
+
+$max_width: 50%;
+$margins: 5%;
+$padding: 15px;
+
+$font-size: 16px;
+$font-main: 'Roboto', sans-serif;
+
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+body{
+	background-color: $bg;
+	font-size: $font-size;
+	font-family: $font-main;
+}
+
+.container{
+	max-width: $max_width;
+	margin: 2% auto 5%;
+}
+
+.cols-12{
+	width: -webkit-fill-available !important;
+	margin-right: 1%;
+}
+
+h1{
+	font-size: 3em;
+	color: $blue;
+	text-align: center;
+}
+
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+fieldset{
+	background-color: white;
+	margin-inline-start: 0;
+	margin-inline-end: 0;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px $grey;
+	margin-bottom: $padding * 2;
+	margin-left: auto;
+	margin-right: auto;
+	padding: $padding;
+
+	label{display: block; margin-bottom: 5px; font-size: 0.9em}
+
+	input{
+		margin-bottom: $padding;
+		&:last-of-type{margin-bottom: 0;}
+	}
+}
+
+legend{
+	background-color: $bg;
+	padding: 0 5px;
+}
+
+#desc{
+	background-color: aliceblue;
+}
+
+input[type="textbox"], textarea{
+	display: inline-flex;
+	width: 47%;
+	margin-right: 1%;
+	padding: 7px 5px;
+	font-size: 1em;
+	border: 1px solid $grey;
+	border-radius: 3px;
+	outline-color: transparent;
+	outline-width: 0;
+	transition: 0.2s ease-in-out;
+	&:nth-child(odd){
+		margin-right: 0;
+	}
+	&:focus{
+		box-shadow: 2px 2px 5px $grey;
+	}
+}
+
+#output{
+	display: block;
+	width: 100%;
+	border: none;
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px $grey;
+	font-size: 0.9em;
+	min-height: 500px;
+	margin-bottom: $padding * 2;
+
+}
+
+.btn{
+	padding: 10px $padding * 2;
+	font-size: 1.2em;
+	border-radius: 5px;
+	border: 1px solid $green;
+	background-color: $green;
+	color: white;
+	transition: 0.3s ease-in-out;
+	outline: none;
+	&:hover{
+		background-color: $dark_green;
+		border: 1px solid $dark_green;
+		cursor: pointer;
+	}
+	&:focus{
+		box-shadow: 2px 2px 5px $grey;
+	}
+}
+
+.btn-back{
+	@extend .btn;
+	background-color: $grey;
+	border: 1px solid $grey;
+
+	&:before{
+		font-family: 'Font Awesome 5 free';
+		font-weight: 700;
+		font-size: 16px;
+		content: '\f0d9';
+		margin-right: 10px;
+	}
+	&:hover{
+		background-color: #999;
+		border: 1px solid #999;
+		cursor: pointer;
+	}
+}
+
+#form2{display: none;}
