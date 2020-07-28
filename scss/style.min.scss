@@ -65,7 +65,7 @@ fieldset{
 
 	label{display: block; margin-bottom: 5px; font-size: 0.9em}
 
-	input{
+	input, select{
 		margin-bottom: $padding;
 		&:last-of-type{margin-bottom: 0;}
 	}
@@ -76,11 +76,10 @@ legend{
 	padding: 0 5px;
 }
 
-#desc{
-	background-color: aliceblue;
-}
+#desc{background-color: aliceblue;}
+#presets{background-color: #e5e5e5}
 
-input[type="textbox"], textarea{
+input[type="textbox"], textarea, select{
 	display: inline-flex;
 	width: 47%;
 	margin-right: 1%;
@@ -99,6 +98,12 @@ input[type="textbox"], textarea{
 	}
 }
 
+#caption{
+	height: 100px;
+	min-height: 100px;
+	margin-bottom: $padding;
+}
+
 #output{
 	display: block;
 	width: 100%;
@@ -108,7 +113,6 @@ input[type="textbox"], textarea{
 	font-size: 0.9em;
 	min-height: 500px;
 	margin-bottom: $padding * 2;
-
 }
 
 .btn{
@@ -130,7 +134,7 @@ input[type="textbox"], textarea{
 	}
 }
 
-.btn-back{
+.btn-secondary{
 	@extend .btn;
 	background-color: $grey;
 	border: 1px solid $grey;
@@ -139,14 +143,16 @@ input[type="textbox"], textarea{
 		font-family: 'Font Awesome 5 free';
 		font-weight: 700;
 		font-size: 16px;
-		content: '\f0d9';
-		margin-right: 10px;
 	}
 	&:hover{
 		background-color: #999;
 		border: 1px solid #999;
 		cursor: pointer;
 	}
+}
+#btnBack:before{
+	content: '\f0d9';
+	margin-right: 10px;
 }
 
 #form2{display: none;}
