@@ -16,41 +16,41 @@ $('#dropdownPresets').change(function(){
 
 		if (value == 'toronto'){
 			// 1 mil
-			$('#hash1_1').val('torontophoto');
+			$('#hash1').val('torontophoto');
 			// 500-900k
-			$('#hash2_1').val('torontoigers');
-			$('#hash2_2').val('');
+			$('#hash2').val('torontoigers');
+			$('#hash3').val('');
 			// 100-450k
-			$('#hash3_1').val('exploretoronto');
-			$('#hash3_2').val('cityshots');
-			$('#hash3_3').val('ig_streets');
-			$('#hash3_4').val('igtoronto');
-			$('#hash3_5').val('imagesoftoronto');
-			$('#hash3_6').val('torontoinsta');
-			$('#hash3_7').val('6ixwalks');
-			$('#hash3_8').val('torontoclx');
-			$('#hash3_9').val('curiocityto');
-			$('#hash3_10').val('dailyhiveto');
+			$('#hash4').val('exploretoronto');
+			$('#hash5').val('cityshots');
+			$('#hash6').val('ig_streets');
+			$('#hash7').val('igtoronto');
+			$('#hash8').val('imagesoftoronto');
+			$('#hash9').val('torontoinsta');
+			$('#hash10').val('6ixwalks');
+			$('#hash11').val('torontoclx');
+			$('#hash12').val('curiocityto');
+			$('#hash13').val('dailyhiveto');
 			// 50-90k
-			$('#hash4_1').val('torontopixel');
-			$('#hash4_2').val('dailyhivetoronto');
-			$('#hash4_3').val('torontodowntown');
-			$('#hash4_4').val('tdot_shots');
-			$('#hash4_5').val('torontostreet');
-			$('#hash4_6').val('street_ographers');
-			$('#hash4_7').val('');
+			$('#hash14').val('torontopixel');
+			$('#hash15').val('dailyhivetoronto');
+			$('#hash16').val('torontodowntown');
+			$('#hash17').val('tdot_shots');
+			$('#hash18').val('torontostreet');
+			$('#hash19').val('street_ographers');
+			$('#hash20').val('');
 			// 20-40k
-			$('#hash5_1').val('todotoronto');
-			$('#hash5_2').val('torontostreetphotography');
-			$('#hash5_3').val('visualtoronto');
-			$('#hash5_4').val('');
-			$('#hash5_5').val('');
-			$('#hash5_6').val('');
-			$('#hash5_7').val('');
+			$('#hash21').val('todotoronto');
+			$('#hash22').val('torontostreetphotography');
+			$('#hash23').val('visualtoronto');
+			$('#hash24').val('');
+			$('#hash25').val('');
+			$('#hash26').val('');
+			$('#hash27').val('');
 			// 10-15k
-			$('#hash6_1').val('lovetdot');
-			$('#hash6_2').val('curiositytoronto');
-			$('#hash6_3').val('');
+			$('#hash28').val('lovetdot');
+			$('#hash29').val('curiositytoronto');
+			$('#hash30').val('');
 		}
 	});
 })
@@ -62,91 +62,115 @@ $('#dropdownPresets').change(function(){
 ## Submit
 --------------------------------------------------------------*/
 $('#btnSubmit').click(function(){
-	$('#form1').fadeOut();
-	$('#form2').fadeIn();
+	var count = 0;
+	// grabs val for every textbox, and adds counter
+	$('input[type="textbox"]').each(function(){
+		if ( $(this).val() != '' ){
+			count++;
+		}
+	});
 
-	var caption = $('#caption').val();
-	var altTxt = $('#altTxt').val();
+	alert('total hashtags used: ' + count);
 
-	// 1 mil
-	var hash1_1Val = $('#hash1_1').val();
-	// 500-900k
-	var hash2_1Val = $('#hash2_1').val();
-	var hash2_2Val = $('#hash2_2').val();
-	// 100-450k
-	var hash3_1Val = $('#hash3_1').val();
-	var hash3_2Val = $('#hash3_2').val();
-	var hash3_3Val = $('#hash3_3').val();
-	var hash3_4Val = $('#hash3_4').val();
-	var hash3_5Val = $('#hash3_5').val();
-	var hash3_6Val = $('#hash3_6').val();
-	var hash3_7Val = $('#hash3_7').val();
-	var hash3_8Val = $('#hash3_8').val();
-	var hash3_9Val = $('#hash3_9').val();
-	var hash3_10Val = $('#hash3_10').val();
-	// 50-90k
-	var hash4_1Val = $('#hash4_1').val();
-	var hash4_2Val = $('#hash4_2').val();
-	var hash4_3Val = $('#hash4_3').val();
-	var hash4_4Val = $('#hash4_4').val();
-	var hash4_5Val = $('#hash4_5').val();
-	var hash4_6Val = $('#hash4_6').val();
-	var hash4_7Val = $('#hash4_7').val();
-	// 20-40k
-	var hash5_1Val = $('#hash5_1').val();
-	var hash5_2Val = $('#hash5_2').val();
-	var hash5_3Val = $('#hash5_3').val();
-	var hash5_4Val = $('#hash5_4').val();
-	var hash5_5Val = $('#hash5_5').val();
-	var hash5_6Val = $('#hash5_6').val();
-	var hash5_7Val = $('#hash5_7').val();
-	// 10-15k
-	var hash6_1Val = $('#hash6_1').val();
-	var hash6_2Val = $('#hash6_2').val();
-	var hash6_3Val = $('#hash6_3').val();
+	// Conditional statement
+	// if over 30, doesn't proceed
+	if (count > 30){
+		alert('More than 30 hashtags were used, reduce to 30 or less');
+	}
+	// if no hashtags doesn't proceed
+	else if (count == 0){
+		alert('0 hashtags used');
+	}
+	// passing condition
+	else{
+		$('#form1').fadeOut();
+		$('#form2').fadeIn();
 
-	$('#output').text(
-		'"' + caption + '"' + '\n\r\n\r' +
-		'Alt Text: ' + altTxt + '\n\r' +
+		var caption = $('#caption').val();
+		var altTxt = $('#altTxt').val();
 
-		'.\n.\n.\n.\n.\n' +
+		// 1 mil
+		var hash1 = $('#hash1').val();
+		// 500-900k
+		var hash2 = $('#hash2').val();
+		var hash3 = $('#hash3').val();
+		// 100-450k
+		var hash4 = $('#hash4').val();
+		var hash5 = $('#hash5').val();
+		var hash6 = $('#hash6').val();
+		var hash7 = $('#hash7').val();
+		var hash8 = $('#hash8').val();
+		var hash9 = $('#hash9').val();
+		var hash10 = $('#hash10').val();
+		var hash11 = $('#hash11').val();
+		var hash12 = $('#hash12').val();
+		var hash13 = $('#hash13').val();
+		// 50-90k
+		var hash14 = $('#hash14').val();
+		var hash15 = $('#hash15').val();
+		var hash16 = $('#hash16').val();
+		var hash17 = $('#hash17').val();
+		var hash18 = $('#hash18').val();
+		var hash19 = $('#hash19').val();
+		var hash20 = $('#hash20').val();
+		// 20-40k
+		var hash21 = $('#hash21').val();
+		var hash22 = $('#hash22').val();
+		var hash23 = $('#hash23').val();
+		var hash24 = $('#hash24').val();
+		var hash25 = $('#hash25').val();
+		var hash26 = $('#hash26').val();
+		var hash27 = $('#hash27').val();
+		// 10-15k
+		var hash28 = $('#hash28').val();
+		var hash29 = $('#hash29').val();
+		var hash30 = $('#hash30').val();
+		// 0-9k
+		var hash31 = $('#hash31').val();
+		var hash32 = $('#hash32').val();
+		var hash33 = $('#hash33').val();
 
-		'#' + hash1_1Val + '\n\r' +
+		$('#output').text(
+			'"' + caption + '"' + '\n\r\n\r' +
+			'Alt Text: ' + altTxt + '\n\r' +
+			'.\n.\n.\n.\n.\n' +
 
-		'#' + hash2_1Val + ' ' +
-		'#' + hash2_2Val + '\n\r' +
+			'#' + hash1 + '\n' +
+			'#' + hash2 + ' ' +
+			'#' + hash3 + '\n' +
+			'#' + hash4 + ' ' +
+			'#' + hash5 + ' ' +
+			'#' + hash6 + ' ' +
+			'#' + hash7 + ' ' +
+			'#' + hash8 + ' ' +
+			'#' + hash9 + ' ' +
+			'#' + hash10 + ' ' +
+			'#' + hash11 + ' ' +
+			'#' + hash12 + ' ' +
+			'#' + hash13 + '\n' +
+			'#' + hash14 + ' ' +
+			'#' + hash15 + ' ' +
+			'#' + hash16 + ' ' +
+			'#' + hash17 + ' ' +
+			'#' + hash18 + ' ' +
+			'#' + hash19 + ' ' +
+			'#' + hash20 + '\n' +
+			'#' + hash21 + ' ' +
+			'#' + hash22 + ' ' +
+			'#' + hash23 + ' ' +
+			'#' + hash24 + ' ' +
+			'#' + hash25 + ' ' +
+			'#' + hash26 + ' ' +
+			'#' + hash27 + '\n' +
+			'#' + hash28 + ' ' +
+			'#' + hash29 + ' ' +
+			'#' + hash30 + '\n' +
+			'#' + hash31 + ' ' +
+			'#' + hash32 + ' ' +
+			'#' + hash33
+		);
+	}
 
-		'#' + hash3_1Val + ' ' +
-		'#' + hash3_2Val + ' ' +
-		'#' + hash3_3Val + ' ' +
-		'#' + hash3_4Val + ' ' +
-		'#' + hash3_5Val + ' ' +
-		'#' + hash3_6Val + ' ' +
-		'#' + hash3_7Val + ' ' +
-		'#' + hash3_8Val + ' ' +
-		'#' + hash3_9Val + ' ' +
-		'#' + hash3_10Val + '\n\r' +
-
-		'#' + hash4_1Val + ' ' +
-		'#' + hash4_2Val + ' ' +
-		'#' + hash4_3Val + ' ' +
-		'#' + hash4_4Val + ' ' +
-		'#' + hash4_5Val + ' ' +
-		'#' + hash4_6Val + ' ' +
-		'#' + hash4_7Val + '\n\r' +
-
-		'#' + hash5_1Val + ' ' +
-		'#' + hash5_2Val + ' ' +
-		'#' + hash5_3Val + ' ' +
-		'#' + hash5_4Val + ' ' +
-		'#' + hash5_5Val + ' ' +
-		'#' + hash5_6Val + ' ' +
-		'#' + hash5_7Val + '\n\r' +
-
-		'#' + hash6_1Val + ' ' +
-		'#' + hash6_2Val + '\n\r' +
-		'#' + hash6_3Val
-	);
 });
 
 /*--------------------------------------------------------------
