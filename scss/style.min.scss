@@ -1,3 +1,4 @@
+/* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap');
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
@@ -32,9 +33,14 @@ body{
 	font-family: $font-main;
 }
 
+.flex{
+	display: flex;
+}
+
 .container{
-	max-width: $max_width;
-	margin: 2% auto 5%;
+	width: 50%;
+	// max-width: $max_width;
+	margin: 0 2%;
 }
 
 .cols-12{
@@ -46,6 +52,10 @@ h1{
 	font-size: 3em;
 	color: $blue;
 	text-align: center;
+}
+
+main{
+	margin: 2% auto 5%;
 }
 
 /*--------------------------------------------------------------
@@ -76,7 +86,13 @@ legend{
 	padding: 0 5px;
 }
 
-#desc{background-color: aliceblue;}
+#desc{
+	background-color: aliceblue;
+	textarea{
+		margin-bottom: $padding;
+		&:last-of-type{margin-bottom: 0;}
+	}
+}
 #presets{background-color: #e5e5e5}
 
 input[type="textbox"], textarea, select{
@@ -98,21 +114,31 @@ input[type="textbox"], textarea, select{
 	}
 }
 
-#caption{
+#caption, #tag{
 	height: 100px;
 	min-height: 100px;
-	margin-bottom: $padding;
 }
 
-#output{
-	display: block;
-	width: 100%;
-	border: none;
-	border-radius: 5px;
-	box-shadow: 2px 2px 5px $grey;
-	font-size: 0.9em;
-	min-height: 500px;
-	margin-bottom: $padding * 2;
+#form2{
+	textarea{
+		position: fixed;
+		margin-top: 0.5%;
+		width: 45%;
+		background-color: white;
+		padding: 7px 5px;
+		border: none;
+		border-radius: 5px;
+		box-shadow: 2px 2px 5px $grey;
+		// font-size: 0.9em;
+		min-height: 500px;
+		margin-bottom: $padding * 2;
+
+		&:hover{cursor: text;}
+	}
+	button{
+		position: fixed;
+		margin-top: 29%;
+	}
 }
 
 .btn{
@@ -150,9 +176,3 @@ input[type="textbox"], textarea, select{
 		cursor: pointer;
 	}
 }
-#btnBack:before{
-	content: '\f0d9';
-	margin-right: 10px;
-}
-
-#form2{display: none;}

@@ -6,101 +6,110 @@
 	<link rel="stylesheet" type="text/css" href="css/style.min.css">
 </head>
 <body>
+
 	<h1>Hashtag Generator</h1>
 
 	<!-- input -->
-	<div id="form1" class="container">
+	<main id="app" class="flex">
+		<div id="form1" class="container">
 
-		<fieldset id="desc">
-			<legend>Descriptions</legend>
-			<label>Caption</label>
-			<textarea id="caption" class="cols-12"></textarea>
-			<label>Alt Text</label>
-			<input id="altTxt" class="cols-12" type="textbox" />
-		</fieldset>
+			<fieldset id="desc">
+				<legend>Descriptions</legend>
+				<label>Caption</label>
+	      <textarea id="caption" class="cols-12" v-model="caption"></textarea>
 
-		<fieldset id="presets">
-			<legend>Preset</legend>
-			<select id="dropdownPresets" name="presets">
-				<option value="none">N/A</option>
-				<option value="toronto">Toronto</option>
-				<option value="cars">Cars</option>
-				<option value="ttc">TTC</option>
-			</select>
-		</fieldset>
+	      <label>Alt Text</label>
+				<textarea id="altTxt" class="cols-12" v-model="altTxt"></textarea>
 
-		<fieldset>
-			<legend>1 mil</legend>
-			<input id="hash1" type="textbox" />
-		</fieldset>
+	      <label>Tag (Accounts)</label>
+	      <textarea id="tag" class="cols-12" v-model="tag"></textarea>
+			</fieldset>
 
-		<fieldset>
-			<legend>500-900k</legend>
-			<input id="hash2" type="textbox" />
-			<input id="hash3" type="textbox" />
-		</fieldset>
+			<fieldset id="presets">
+				<legend>Preset</legend>
+				<select id="dropdownPresets" name="presets" v-model="presets" @change="select(presets)">
+					<option value="none">N/A</option>
+					<option value="toronto">Toronto</option>
+					<option value="cars">Cars</option>
+					<option value="ttc">TTC</option>
+				</select>
+			</fieldset>
 
-		<fieldset>
-			<legend>100-450k</legend>
-			<input id="hash4" type="textbox" />
-			<input id="hash5" type="textbox" />
-			<input id="hash6" type="textbox" />
-			<input id="hash7" type="textbox" />
-			<input id="hash8" type="textbox" />
-			<input id="hash9" type="textbox" />
-			<input id="hash10" type="textbox" />
-			<input id="hash11" type="textbox" />
-			<input id="hash12" type="textbox" />
-			<input id="hash13" type="textbox" />
-		</fieldset>
+			<fieldset>
+				<legend>1 mil (1)</legend>
+				<input id="hash1" type="textbox" v-model="hash1"/>
+	  	</fieldset>
 
-		<fieldset>
-			<legend>50-90k</legend>
-			<input id="hash14" type="textbox" />
-			<input id="hash15" type="textbox" />
-			<input id="hash16" type="textbox" />
-			<input id="hash17" type="textbox" />
-			<input id="hash18" type="textbox" />
-			<input id="hash19" type="textbox" />
-			<input id="hash20" type="textbox" />
-		</fieldset>
+			<fieldset>
+				<legend>500-900k (2)</legend>
+				<input id="hash2" type="textbox" v-model="hash2"/>
+				<input id="hash3" type="textbox" v-model="hash3"/>
+			</fieldset>
 
-		<fieldset>
-			<legend>20-40k</legend>
-			<input id="hash21" type="textbox" />
-			<input id="hash22" type="textbox" />
-			<input id="hash23" type="textbox" />
-			<input id="hash24" type="textbox" />
-			<input id="hash25" type="textbox" />
-			<input id="hash26" type="textbox" />
-			<input id="hash27" type="textbox" />
-		</fieldset>
+			<fieldset>
+				<legend>100-450k (10)</legend>
+				<input id="hash4" type="textbox" v-model="hash4"/>
+				<input id="hash5" type="textbox" v-model="hash5"/>
+				<input id="hash6" type="textbox" v-model="hash6"/>
+				<input id="hash7" type="textbox" v-model="hash7"/>
+				<input id="hash8" type="textbox" v-model="hash8"/>
+				<input id="hash9" type="textbox" v-model="hash9"/>
+				<input id="hash10" type="textbox" v-model="hash10"/>
+				<input id="hash11" type="textbox" v-model="hash11"/>
+				<input id="hash12" type="textbox" v-model="hash12"/>
+				<input id="hash13" type="textbox" v-model="hash13"/>
+			</fieldset>
 
-		<fieldset>
-			<legend>10-15k</legend>
-			<input id="hash28" type="textbox" />
-			<input id="hash29" type="textbox" />
-			<input id="hash30" type="textbox" />
-		</fieldset>
+			<fieldset>
+				<legend>50-90k (7)</legend>
+				<input id="hash14" type="textbox" v-model="hash14"/>
+				<input id="hash15" type="textbox" v-model="hash15"/>
+				<input id="hash16" type="textbox" v-model="hash16"/>
+				<input id="hash17" type="textbox" v-model="hash17"/>
+				<input id="hash18" type="textbox" v-model="hash18"/>
+				<input id="hash19" type="textbox" v-model="hash19"/>
+				<input id="hash20" type="textbox" v-model="hash20"/>
+			</fieldset>
 
-		<fieldset>
-			<legend>0-9k</legend>
-			<input id="hash31" type="textbox" />
-			<input id="hash32" type="textbox" />
-			<input id="hash33" type="textbox" />
-		</fieldset>
+			<fieldset>
+				<legend>20-40k (7)</legend>
+				<input id="hash21" type="textbox" v-model="hash21"/>
+				<input id="hash22" type="textbox" v-model="hash22"/>
+				<input id="hash23" type="textbox" v-model="hash23"/>
+				<input id="hash24" type="textbox" v-model="hash24"/>
+				<input id="hash25" type="textbox" v-model="hash25"/>
+				<input id="hash26" type="textbox" v-model="hash26"/>
+				<input id="hash27" type="textbox" v-model="hash27"/>
+			</fieldset>
 
-		<button id="btnReset" class="btn btn-secondary">Reset</button>
-		<button id="btnSubmit" class="btn">Generate</button>
-	</div>
+			<fieldset>
+				<legend>10-15k (3)</legend>
+				<input id="hash28" type="textbox" v-model="hash28"/>
+				<input id="hash29" type="textbox" v-model="hash29"/>
+				<input id="hash30" type="textbox" v-model="hash30"/>
+			</fieldset>
 
-	<!-- Output -->
-	<div id="form2" class="container">
-		<textarea id="output"></textarea>
-		<button id="btnBack" class="btn btn-secondary">Back</button>
-	</div>
+			<fieldset>
+				<legend>0-9k (3)</legend>
+				<input id="hash31" type="textbox" v-model="hash31"/>
+				<input id="hash32" type="textbox" v-model="hash32"/>
+				<input id="hash33" type="textbox" v-model="hash33"/>
+			</fieldset>
+		</div>
+
+		<!-- Output -->
+		<div id="form2" class="container">
+			<textarea>"{{caption}}" &#013; &#010;Tag: {{tag}} &#013; &#010;Alt Text: {{altTxt}} &#013; &#010;.&#013;.&#013;.&#013;.&#013;.&#013;{{hash1}} {{hash2}} {{hash3}} {{hash4}} {{hash5}} {{hash6}} {{hash7}} {{hash8}} {{hash9}} {{hash10}} {{hash11}} {{hash12}} {{hash13}} {{hash14}} {{hash15}} {{hash16}} {{hash17}} {{hash18}} {{hash19}} {{hash20}} {{hash21}} {{hash22}} {{hash23}} {{hash24}} {{hash25}} {{hash26}} {{hash27}} {{hash28}} {{hash29}} {{hash30}} {{hash31}} {{hash32}} {{hash33}}
+			</textarea>
+			<button id="btnReset" class="btn btn-secondary" @click="reset()">Reset</button>
+
+		</div>
+	</main>
 
 <script src="js/jquery-3.5.1.min.js"></script>
 <script src="js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="js/vue.js"></script>
+
 </body>
 </html>
