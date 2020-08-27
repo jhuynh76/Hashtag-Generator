@@ -6,34 +6,44 @@
 	<link rel="stylesheet" type="text/css" href="css/style.min.css">
 </head>
 <body>
-
 	<h1>Hashtag Generator</h1>
 
 	<!-- input -->
 	<main id="app" class="flex">
 		<div id="form1" class="container">
 
-			<fieldset id="desc">
+			<section id="desc" class="label-info">
 				<legend>Descriptions</legend>
-				<label>Caption</label>
-	      <textarea id="caption" class="cols-12" v-model="caption"></textarea>
+				<div>
+					<label>Caption</label>
+		      <textarea id="caption" class="cols-12" v-model="caption"></textarea>
+				</div>
 
-	      <label>Alt Text</label>
-				<textarea id="altTxt" class="cols-12" v-model="altTxt"></textarea>
+				<div>
+		      <label>Alt Text</label>
+					<textarea id="altTxt" class="cols-12" v-model="altTxt"></textarea>
+				</div>
 
-	      <label>Tag (Accounts)</label>
-	      <textarea id="tag" class="cols-12" v-model="tag"></textarea>
-			</fieldset>
+				<div>
+		      <label>Tag (Accounts)</label>
+		      <textarea id="tag" class="cols-12" v-model="tag"></textarea>
+				</div>
+			</section>
 
-			<fieldset id="presets">
+			<section id="presets">
 				<legend>Preset</legend>
+				<p>Select from the dropdown list below to pre-fill fields (Tagged accounts & Hashtags)</p>
 				<select id="dropdownPresets" name="presets" v-model="presets" @change="select(presets)">
 					<option value="none">N/A</option>
 					<option value="toronto">Toronto</option>
 					<option value="cars">Cars</option>
 					<option value="ttc">TTC</option>
 				</select>
-			</fieldset>
+			</section>
+
+			<section class="info-green">
+				Hashtags below. Hashtags are arranged by numbers, ideally the 100-450k, 50-90k, 20-40k are the most optimal
+			</section>
 
 			<fieldset>
 				<legend>1 mil (1)</legend>
@@ -101,10 +111,12 @@
 		<div id="form2" class="container">
 			<textarea>"{{caption}}" &#013; &#010;Tag: {{tag}} &#013; &#010;Alt Text: {{altTxt}} &#013; &#010;.&#013;.&#013;.&#013;.&#013;.&#013;{{hash1}} {{hash2}} {{hash3}} {{hash4}} {{hash5}} {{hash6}} {{hash7}} {{hash8}} {{hash9}} {{hash10}} {{hash11}} {{hash12}} {{hash13}} {{hash14}} {{hash15}} {{hash16}} {{hash17}} {{hash18}} {{hash19}} {{hash20}} {{hash21}} {{hash22}} {{hash23}} {{hash24}} {{hash25}} {{hash26}} {{hash27}} {{hash28}} {{hash29}} {{hash30}} {{hash31}} {{hash32}} {{hash33}}
 			</textarea>
-			<button id="btnReset" class="btn btn-secondary" @click="reset()">Reset</button>
+			<button id="btnReset" class="btn" @click="reset()">Reset</button>
 
 		</div>
+
 	</main>
+	<footer>Powered by JHD Solutions ©2020. All rights reserved. Version 1.1</footer>
 
 <script src="js/jquery-3.5.1.min.js"></script>
 <script src="js/script.js"></script>

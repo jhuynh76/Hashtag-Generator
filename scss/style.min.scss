@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;900&display=swap');
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
@@ -31,11 +31,10 @@ body{
 	background-color: $bg;
 	font-size: $font-size;
 	font-family: $font-main;
+	margin: 0;
 }
 
-.flex{
-	display: flex;
-}
+.flex{display: flex;}
 
 .container{
 	width: 50%;
@@ -50,17 +49,43 @@ body{
 
 h1{
 	font-size: 3em;
-	color: $blue;
+	color: white;
+	font-weight: 400;
+	letter-spacing: -2px;
 	text-align: center;
+	margin: 0;
+	background-color: $green;
+	box-shadow: 2px 2px 5px $grey;
+	padding: $padding 0;
 }
 
 main{
-	margin: 2% auto 5%;
+	margin: 1.5% auto 3%;
+}
+
+.info-green{
+	border-left: 10px solid $green;
+	background-color: #E0F8F1;
+	padding: $padding * 2;
+}
+
+section{
+	margin-bottom: $padding * 2;
 }
 
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
+label{
+	display: block;
+	margin-bottom: 5px;
+	font-size: 0.9em;
+}
+
+input, textarea{
+	text-indent: 5px;
+}
+
 fieldset{
 	background-color: white;
 	margin-inline-start: 0;
@@ -73,8 +98,6 @@ fieldset{
 	margin-right: auto;
 	padding: $padding;
 
-	label{display: block; margin-bottom: 5px; font-size: 0.9em}
-
 	input, select{
 		margin-bottom: $padding;
 		&:last-of-type{margin-bottom: 0;}
@@ -82,18 +105,36 @@ fieldset{
 }
 
 legend{
+	font-size: 1.3em;
 	background-color: $bg;
-	padding: 0 5px;
+	// padding: 0 5px;
+	margin-bottom: $padding;
+}
+
+.label-info{
+	label{
+		background-color: $green;
+		color: white;
+		border: 1px solid $grey;
+		border-bottom: 0;
+		padding: 10px;
+		border-radius: 5px 5px 0 0;
+		margin-bottom: 0;
+	}
+
+	textarea{
+		border-radius: 0 0 5px 5px;
+		margin-right: 0;
+		&:last-of-type{margin-bottom: 0;}
+	}
 }
 
 #desc{
-	background-color: aliceblue;
-	textarea{
+	div{
 		margin-bottom: $padding;
 		&:last-of-type{margin-bottom: 0;}
 	}
 }
-#presets{background-color: #e5e5e5}
 
 input[type="textbox"], textarea, select{
 	display: inline-flex;
@@ -107,7 +148,7 @@ input[type="textbox"], textarea, select{
 	outline-width: 0;
 	transition: 0.2s ease-in-out;
 	&:nth-child(odd){
-		margin-right: 0;
+		// margin-right: 0;
 	}
 	&:focus{
 		box-shadow: 2px 2px 5px $grey;
@@ -122,7 +163,7 @@ input[type="textbox"], textarea, select{
 #form2{
 	textarea{
 		position: fixed;
-		margin-top: 0.5%;
+		margin-top: 2%;
 		width: 45%;
 		background-color: white;
 		padding: 7px 5px;
@@ -137,23 +178,23 @@ input[type="textbox"], textarea, select{
 	}
 	button{
 		position: fixed;
-		margin-top: 29%;
+		margin-top: 31%;
 	}
 }
 
 .btn{
 	padding: 10px $padding * 2;
 	font-size: 1.2em;
-	border-radius: 5px;
+	border-radius: 30px;
 	border: 1px solid $green;
 	background-color: $green;
+	box-shadow: 2px 2px 5px $grey;
 	color: white;
 	transition: 0.3s ease-in-out;
 	outline: none;
 	&:hover{
-		background-color: $dark_green;
-		border: 1px solid $dark_green;
 		cursor: pointer;
+		transform: scale(1.2);
 	}
 	&:focus{
 		box-shadow: 2px 2px 5px $grey;
@@ -175,4 +216,14 @@ input[type="textbox"], textarea, select{
 		border: 1px solid #999;
 		cursor: pointer;
 	}
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+footer{
+	padding: $padding 0;
+	background-color: $green;
+	color: white;
+	text-align: center;
 }
